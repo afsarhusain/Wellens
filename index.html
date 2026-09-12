@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Wellens — Coming Soon</title>
+
+  <style>
+    :root {
+      --bg: #f5f9f7;
+      --green: #2d7567;
+      --green-dark: #1f5b4f;
+      --text: #18332d;
+      --muted: #72837e;
+      --line: rgba(45, 117, 103, 0.16);
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow: hidden;
+
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      color: var(--text);
+
+      background:
+        radial-gradient(
+          circle at 50% 40%,
+          rgba(130, 195, 178, 0.18),
+          transparent 34%
+        ),
+        radial-gradient(
+          circle at 15% 90%,
+          rgba(91, 166, 147, 0.09),
+          transparent 28%
+        ),
+        var(--bg);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ---------------------------------------------------------
+       PAGE
+       --------------------------------------------------------- */
+
+    .page {
+      width: 100%;
+      min-height: 100vh;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      padding: 30px;
+      text-align: center;
+
+      position: relative;
+    }
+
+    /* ---------------------------------------------------------
+       BRAND
+       --------------------------------------------------------- */
+
+    .brand {
+      position: absolute;
+      top: 36px;
+      left: 45px;
+
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      font-size: 23px;
+      font-weight: 700;
+      letter-spacing: -0.7px;
+
+      animation: fadeDown 1s ease both;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+
+      border-radius: 11px;
+
+      background: var(--green);
+
+      display: grid;
+      place-items: center;
+
+      box-shadow:
+        0 8px 20px rgba(45, 117, 103, 0.20);
+    }
+
+    /*
+      Temporary abstract mark.
+      Replace this with the actual Wellens logo.
+    */
+
+    .brand-mark::before {
+      content: "";
+
+      width: 15px;
+      height: 15px;
+
+      border: 2px solid white;
+      border-radius: 50%;
+    }
+
+    /* ---------------------------------------------------------
+       CENTRAL VISUAL
+       --------------------------------------------------------- */
+
+    .visual {
+      width: 310px;
+      height: 240px;
+
+      position: relative;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin-bottom: 20px;
+    }
+
+    /* Soft breathing halo */
+
+    .halo {
+      position: absolute;
+
+      width: 210px;
+      height: 210px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(45, 117, 103, 0.11),
+          rgba(45, 117, 103, 0.025) 65%,
+          transparent 70%
+        );
+
+      animation:
+        breathe 5s ease-in-out infinite;
+    }
+
+    /* Outer orbit */
+
+    .orbit {
+      position: absolute;
+
+      width: 205px;
+      height: 205px;
+
+      border-radius: 50%;
+
+      border: 1px solid rgba(45, 117, 103, 0.11);
+
+      animation:
+        rotate 18s linear infinite;
+    }
+
+    .orbit::before,
+    .orbit::after {
+      content: "";
+
+      position: absolute;
+
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: var(--green);
+    }
+
+    .orbit::before {
+      top: 21px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .orbit::after {
+      bottom: 35px;
+      right: 12px;
+    }
+
+    /* ---------------------------------------------------------
+       CENTRAL WELLENS SYMBOL
+       --------------------------------------------------------- */
+
+    .symbol {
+      width: 92px;
+      height: 92px;
+
+      position: relative;
+      z-index: 2;
+
+      border-radius: 28px;
+
+      background: var(--white);
+
+      box-shadow:
+        0 18px 45px rgba(32, 91, 79, 0.12);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      animation:
+        appear 1.2s 0.4s ease both,
+        float 5s 1.5s ease-in-out infinite;
+    }
+
+    .symbol-inner {
+      width: 49px;
+      height: 49px;
+
+      position: relative;
+    }
+
+    /*
+      Abstract "W" / pulse-inspired mark.
+    */
+
+    .symbol-inner::before,
+    .symbol-inner::after {
+      content: "";
+
+      position: absolute;
+
+      width: 31px;
+      height: 31px;
+
+      border: 4px solid var(--green);
+
+      border-radius: 50%;
+    }
+
+    .symbol-inner::before {
+      left: 0;
+      top: 9px;
+    }
+
+    .symbol-inner::after {
+      right: 0;
+      top: 9px;
+    }
+
+    /* Small pulse in the middle */
+
+    .pulse {
+      position: absolute;
+
+      left: 50%;
+      top: 50%;
+
+      width: 11px;
+      height: 11px;
+
+      transform: translate(-50%, -50%);
+
+      border-radius: 50%;
+
+      background: var(--green);
+
+      box-shadow:
+        0 0 0 7px rgba(45,117,103,0.08);
+
+      animation:
+        pulse 2s ease-in-out infinite;
+    }
+
+    /* ---------------------------------------------------------
+       HEARTBEAT LINE
+       --------------------------------------------------------- */
+
+    .heartbeat {
+      position: absolute;
+
+      width: 310px;
+      height: 80px;
+
+      left: 50%;
+      bottom: -5px;
+
+      transform: translateX(-50%);
+
+      overflow: hidden;
+
+      opacity: 0.75;
+    }
+
+    .heartbeat svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .heartbeat-path {
+      fill: none;
+
+      stroke: var(--green);
+
+      stroke-width: 1.4;
+
+      stroke-linecap: round;
+
+      stroke-dasharray: 420;
+      stroke-dashoffset: 420;
+
+      animation:
+        heartbeatDraw 3.5s 1.2s ease forwards,
+        heartbeatGlow 3s 4.5s ease-in-out infinite;
+    }
+
+    /* ---------------------------------------------------------
+       TEXT
+       --------------------------------------------------------- */
+
+    .eyebrow {
+      margin-bottom: 17px;
+
+      color: var(--green);
+
+      font-size: 11px;
+      font-weight: 750;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+
+      animation:
+        fadeUp 0.9s 0.7s ease both;
+    }
+
+    h1 {
+      font-size:
+        clamp(42px, 6vw, 68px);
+
+      line-height: 1;
+
+      letter-spacing: -3.5px;
+
+      font-weight: 650;
+
+      margin-bottom: 21px;
+
+      animation:
+        fadeUp 0.9s 0.85s ease both;
+    }
+
+    h1 span {
+      color: var(--green);
+    }
+
+    .description {
+      max-width: 480px;
+
+      margin: 0 auto;
+
+      color: var(--muted);
+
+      font-size: 15px;
+
+      line-height: 1.8;
+
+      animation:
+        fadeUp 0.9s 1s ease both;
+    }
+
+    /* ---------------------------------------------------------
+       STATUS
+       --------------------------------------------------------- */
+
+    .status {
+      margin-top: 29px;
+
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 9px;
+
+      padding: 9px 15px;
+
+      border-radius: 100px;
+
+      background: rgba(45,117,103,0.06);
+
+      border: 1px solid rgba(45,117,103,0.10);
+
+      color: var(--green-dark);
+
+      font-size: 11px;
+      font-weight: 650;
+
+      animation:
+        fadeUp 0.9s 1.15s ease both;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: var(--green);
+
+      animation:
+        statusPulse 2s infinite;
+    }
+
+    /* ---------------------------------------------------------
+       FOOTER
+       --------------------------------------------------------- */
+
+    .footer {
+      position: absolute;
+
+      bottom: 25px;
+
+      color: #9aa9a5;
+
+      font-size: 10px;
+
+      animation:
+        fadeUp 1s 1.4s ease both;
+    }
+
+    /* ---------------------------------------------------------
+       ANIMATIONS
+       --------------------------------------------------------- */
+
+    @keyframes breathe {
+      0%, 100% {
+        transform: scale(0.96);
+        opacity: 0.75;
+      }
+
+      50% {
+        transform: scale(1.05);
+        opacity: 1;
+      }
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+      50% {
+        transform: translate(-50%, -50%) scale(1.18);
+      }
+    }
+
+    @keyframes statusPulse {
+      0%, 100% {
+        box-shadow:
+          0 0 0 0 rgba(45,117,103,0.25);
+      }
+
+      50% {
+        box-shadow:
+          0 0 0 6px rgba(45,117,103,0);
+      }
+    }
+
+    @keyframes heartbeatDraw {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    @keyframes heartbeatGlow {
+      0%, 100% {
+        opacity: 0.45;
+      }
+
+      50% {
+        opacity: 0.9;
+      }
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: scale(0.75);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ---------------------------------------------------------
+       MOBILE
+       --------------------------------------------------------- */
+
+    @media (max-width: 600px) {
+
+      .page {
+        padding: 25px 20px;
+      }
+
+      .brand {
+        top: 24px;
+        left: 25px;
+
+        font-size: 20px;
+      }
+
+      .brand-mark {
+        width: 32px;
+        height: 32px;
+      }
+
+      .visual {
+        width: 280px;
+        height: 215px;
+
+        margin-bottom: 10px;
+      }
+
+      .halo {
+        width: 180px;
+        height: 180px;
+      }
+
+      .orbit {
+        width: 175px;
+        height: 175px;
+      }
+
+      .symbol {
+        width: 80px;
+        height: 80px;
+
+        border-radius: 24px;
+      }
+
+      .heartbeat {
+        width: 285px;
+      }
+
+      h1 {
+        font-size: 43px;
+        letter-spacing: -2.4px;
+      }
+
+      .description {
+        font-size: 14px;
+      }
+
+      .status {
+        margin-top: 24px;
+      }
+
+      .footer {
+        bottom: 16px;
+      }
+    }
+
+    /* ---------------------------------------------------------
+       ACCESSIBILITY
+       --------------------------------------------------------- */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <main class="page">
+
+    <!-- =====================================================
+         BRAND
+         ===================================================== -->
+
+    <div class="brand">
+
+      <div class="brand-mark"></div>
+
+      <span>Wellens</span>
+
+    </div>
+
+
+    <!-- =====================================================
+         CENTRAL VISUAL
+         ===================================================== -->
+
+    <div class="visual">
+
+      <div class="halo"></div>
+
+      <div class="orbit"></div>
+
+
+      <div class="symbol">
+
+        <div class="symbol-inner">
+
+          <div class="pulse"></div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Heartbeat -->
+      <div class="heartbeat">
+
+        <svg
+          viewBox="0 0 310 80"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+
+          <path
+            class="heartbeat-path"
+            d="
+              M 0 42
+              L 82 42
+              L 94 42
+              L 101 35
+              L 108 49
+              L 116 42
+              L 135 42
+              L 145 42
+              L 153 18
+              L 164 64
+              L 176 42
+              L 187 42
+              L 198 42
+              L 207 35
+              L 214 49
+              L 221 42
+              L 310 42
+            "
+          />
+
+        </svg>
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         MESSAGE
+         ===================================================== -->
+
+    <div class="eyebrow">
+      Something good is taking shape
+    </div>
+
+
+    <h1>
+      Wellens is<br>
+      <span>coming soon.</span>
+    </h1>
+
+
+    <p class="description">
+
+      We're putting the finishing touches on our website —
+      a simpler way to discover the clinic, understand your
+      care options and book an appointment.
+
+    </p>
+
+
+    <div class="status">
+
+      <span class="status-dot"></span>
+
+      Website in development
+
+    </div>
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <div class="footer">
+
+      © <span id="year"></span> Wellens · Healthcare, made simpler.
+
+    </div>
+
+  </main>
+
+
+  <script>
+
+    /* =========================================================
+       WELLENS — JAVASCRIPT
+       ========================================================= */
+
+    // Automatically update the year
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+
+    /*
+      Very subtle mouse interaction.
+
+      The central visual gently follows the cursor on desktop.
+      It is intentionally restrained so the page remains
+      professional and calm.
+    */
+
+    const visual =
+      document.querySelector(".visual");
+
+    if (
+      window.matchMedia("(pointer:fine)").matches
+    ) {
+
+      document.addEventListener("mousemove", (event) => {
+
+        const x =
+          (event.clientX / window.innerWidth - 0.5);
+
+        const y =
+          (event.clientY / window.innerHeight - 0.5);
+
+        visual.style.transform =
+          `translate(${x * 5}px, ${y * 5}px)`;
+
+      });
+
+    }
+
+  </script>
+
+</body>
+</html>
