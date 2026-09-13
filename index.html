@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
   <meta charset="UTF-8">
@@ -9,13 +10,41 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>Wellens — Coming Soon</title>
+  <meta
+    name="theme-color"
+    content="#1769AA"
+  >
+
+  <title>Wellens Healthcare</title>
+
+
+  <!-- =======================================================
+       FAVICON
+       Uses your Wellens logo
+       ======================================================= -->
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="./wellens-logo.png"
+  >
+
+  <link
+    rel="shortcut icon"
+    type="image/png"
+    href="./wellens-logo.png"
+  >
+
+  <link
+    rel="apple-touch-icon"
+    href="./wellens-logo.png"
+  >
 
 
   <style>
 
     /* =========================================================
-       WELLENS — BRAND COLOURS
+       WELLENS BRAND PALETTE
        ========================================================= */
 
     :root {
@@ -42,8 +71,9 @@
       --footer: #102A43;
       --footer-text: #B8C7D6;
 
-      /* ECG red */
+      /* ECG */
       --ecg-red: #C62828;
+      --ecg-light: #E57373;
     }
 
 
@@ -84,14 +114,14 @@
       background:
 
         radial-gradient(
-          circle at 50% 38%,
-          rgba(220, 238, 249, 0.90),
+          circle at 50% 36%,
+          rgba(220, 238, 249, 0.95),
           transparent 35%
         ),
 
         radial-gradient(
           circle at 15% 90%,
-          rgba(223, 245, 241, 0.70),
+          rgba(223, 245, 241, 0.72),
           transparent 30%
         ),
 
@@ -120,7 +150,7 @@
       justify-content: center;
 
       padding:
-        50px 24px 70px;
+        55px 24px 65px;
 
       text-align: center;
     }
@@ -134,8 +164,8 @@
 
       position: absolute;
 
-      top: 25px;
-      left: 38px;
+      top: 23px;
+      left: 35px;
 
       display: flex;
 
@@ -149,12 +179,11 @@
     .brand-logo {
 
       /*
-        Slightly larger than before.
-        Your actual uploaded logo is used here.
+        Your actual Wellens logo.
       */
 
-      width: 110px;
-      height: 72px;
+      width: 115px;
+      height: 75px;
 
       object-fit: contain;
 
@@ -168,8 +197,8 @@
 
     .visual {
 
-      width: 330px;
-      height: 255px;
+      width: 520px;
+      height: 315px;
 
       position: relative;
 
@@ -178,7 +207,7 @@
       align-items: center;
       justify-content: center;
 
-      margin-bottom: 15px;
+      margin-bottom: 4px;
 
       transition:
         transform 0.15s ease-out;
@@ -186,15 +215,15 @@
 
 
     /* =========================================================
-       SOFT BACKGROUND HALO
+       BACKGROUND HALO
        ========================================================= */
 
     .halo {
 
       position: absolute;
 
-      width: 230px;
-      height: 230px;
+      width: 285px;
+      height: 285px;
 
       border-radius: 50%;
 
@@ -202,38 +231,35 @@
 
         radial-gradient(
           circle,
-
-          rgba(220, 238, 249, 0.95),
-
-          rgba(223, 245, 241, 0.48) 58%,
-
+          rgba(220, 238, 249, 0.90),
+          rgba(223, 245, 241, 0.42) 58%,
           transparent 72%
         );
 
       animation:
-        breathe 5s ease-in-out infinite;
+        breathe 6s ease-in-out infinite;
     }
 
 
     /* =========================================================
-       ORBIT
+       SUBTLE ORBIT
        ========================================================= */
 
     .orbit {
 
       position: absolute;
 
-      width: 210px;
-      height: 210px;
+      width: 275px;
+      height: 275px;
 
       border-radius: 50%;
 
       border:
         1px solid
-        rgba(23, 105, 170, 0.13);
+        rgba(23, 105, 170, 0.10);
 
       animation:
-        rotate 20s linear infinite;
+        rotate 24s linear infinite;
     }
 
 
@@ -244,8 +270,8 @@
 
       position: absolute;
 
-      width: 7px;
-      height: 7px;
+      width: 6px;
+      height: 6px;
 
       border-radius: 50%;
     }
@@ -267,9 +293,9 @@
 
     .orbit::after {
 
-      right: 16px;
+      right: 25px;
 
-      bottom: 38px;
+      bottom: 43px;
 
       background:
         var(--teal);
@@ -277,25 +303,81 @@
 
 
     /* =========================================================
-       CONSTRUCTION SCENE
+       BUILDING CONSTRUCTION SCENE
        ========================================================= */
 
     .construction {
 
-      width: 190px;
-      height: 175px;
-
       position: relative;
 
-      z-index: 3;
+      width: 300px;
+      height: 245px;
+
+      z-index: 4;
 
       animation:
-        constructionFloat 5s ease-in-out infinite;
+        constructionFloat
+        6s
+        ease-in-out
+        infinite;
     }
 
 
     /* =========================================================
-       BUILDING
+       GROUND / FOUNDATION
+       ========================================================= */
+
+    .ground {
+
+      position: absolute;
+
+      left: 50%;
+
+      bottom: 15px;
+
+      width: 220px;
+      height: 7px;
+
+      transform:
+        translateX(-50%);
+
+      border-radius: 10px;
+
+      background:
+        var(--primary-blue);
+
+      opacity: 0.18;
+    }
+
+
+    .foundation {
+
+      position: absolute;
+
+      left: 50%;
+
+      bottom: 22px;
+
+      width: 125px;
+      height: 15px;
+
+      transform:
+        translateX(-50%);
+
+      border-radius:
+        3px 3px 5px 5px;
+
+      background:
+        var(--primary-dark);
+
+      box-shadow:
+        0 7px 15px
+        rgba(18, 84, 134, 0.12);
+    }
+
+
+    /* =========================================================
+       BUILDING BODY
        ========================================================= */
 
     .building {
@@ -303,10 +385,11 @@
       position: absolute;
 
       left: 50%;
-      bottom: 18px;
 
-      width: 86px;
-      height: 105px;
+      bottom: 37px;
+
+      width: 125px;
+      height: 160px;
 
       transform:
         translateX(-50%);
@@ -317,50 +400,104 @@
 
       justify-content: flex-end;
 
-      gap: 5px;
+      gap: 4px;
     }
 
 
-    /* Building floors */
+    /* =========================================================
+       BUILDING FLOORS
+       ========================================================= */
 
     .floor {
 
       width: 100%;
-      height: 29px;
+      height: 37px;
+
+      position: relative;
 
       display: grid;
 
       grid-template-columns:
         repeat(3, 1fr);
 
-      gap: 6px;
+      gap: 7px;
 
       padding:
-        5px 7px;
+        6px 8px;
 
       background:
-
         linear-gradient(
           135deg,
           #FFFFFF,
-          #EDF6FB
+          #EEF7FB
         );
 
       border:
         1px solid
-        rgba(23, 105, 170, 0.16);
+        rgba(23, 105, 170, 0.17);
 
-      border-radius: 4px;
+      border-radius: 3px;
 
       box-shadow:
-        0 4px 9px
-        rgba(23, 105, 170, 0.08);
+        0 4px 10px
+        rgba(23, 105, 170, 0.07);
+
+      transform-origin:
+        bottom center;
     }
 
 
-    /* Building windows */
+    /* Building floors are constructed sequentially */
 
-    .floor span {
+    .floor-one {
+
+      animation:
+        floorBuild
+        6s
+        0.3s
+        ease-in-out
+        infinite;
+    }
+
+
+    .floor-two {
+
+      animation:
+        floorBuild
+        6s
+        0.8s
+        ease-in-out
+        infinite;
+    }
+
+
+    .floor-three {
+
+      animation:
+        floorBuild
+        6s
+        1.3s
+        ease-in-out
+        infinite;
+    }
+
+
+    .floor-four {
+
+      animation:
+        floorBuild
+        6s
+        1.8s
+        ease-in-out
+        infinite;
+    }
+
+
+    /* =========================================================
+       WINDOWS
+       ========================================================= */
+
+    .window {
 
       display: block;
 
@@ -371,39 +508,52 @@
 
       border:
         1px solid
-        rgba(23, 105, 170, 0.12);
+        rgba(23, 105, 170, 0.13);
+
+      transition:
+        background 0.3s ease;
     }
 
 
-    /* Floors subtly animate */
-
-    .floor-one {
+    .floor-four .window {
 
       animation:
-        buildFloor
-        5s
+        windowLight
+        6s
+        3s
         ease-in-out
         infinite;
     }
 
 
-    .floor-two {
+    .floor-three .window {
 
       animation:
-        buildFloor
-        5s
-        0.45s
+        windowLight
+        6s
+        3.3s
         ease-in-out
         infinite;
     }
 
 
-    .floor-three {
+    .floor-two .window {
 
       animation:
-        buildFloor
-        5s
-        0.9s
+        windowLight
+        6s
+        3.6s
+        ease-in-out
+        infinite;
+    }
+
+
+    .floor-one .window {
+
+      animation:
+        windowLight
+        6s
+        3.9s
         ease-in-out
         infinite;
     }
@@ -417,11 +567,13 @@
 
       position: absolute;
 
-      left: 25px;
-      top: 15px;
+      left: 16px;
+      top: 13px;
 
-      width: 145px;
-      height: 105px;
+      width: 185px;
+      height: 190px;
+
+      z-index: 8;
     }
 
 
@@ -431,16 +583,58 @@
 
       position: absolute;
 
-      left: 27px;
+      left: 18px;
       top: 0;
 
-      width: 5px;
-      height: 115px;
+      width: 6px;
+      height: 190px;
 
       border-radius: 4px;
 
       background:
         var(--primary-blue);
+    }
+
+
+    /* Mast diagonal supports */
+
+    .crane-mast::before,
+    .crane-mast::after {
+
+      content: "";
+
+      position: absolute;
+
+      width: 4px;
+      height: 175px;
+
+      top: 10px;
+
+      background:
+        var(--primary-blue);
+
+      transform-origin:
+        top center;
+
+      opacity: 0.65;
+    }
+
+
+    .crane-mast::before {
+
+      left: 0;
+
+      transform:
+        rotate(12deg);
+    }
+
+
+    .crane-mast::after {
+
+      left: 2px;
+
+      transform:
+        rotate(-12deg);
     }
 
 
@@ -450,13 +644,13 @@
 
       position: absolute;
 
-      left: 27px;
-      top: 2px;
+      left: 19px;
+      top: 4px;
 
-      width: 125px;
-      height: 5px;
+      width: 165px;
+      height: 6px;
 
-      border-radius: 4px;
+      border-radius: 5px;
 
       background:
         var(--primary-blue);
@@ -465,24 +659,45 @@
         left center;
 
       animation:
-        craneMove
-        5s
+        craneArmMove
+        6s
         ease-in-out
         infinite;
     }
 
 
-    /* Cable */
+    /* Crane counterweight */
 
-    .crane-cable {
+    .counterweight {
 
       position: absolute;
 
-      right: 19px;
-      top: 5px;
+      left: -8px;
+      top: -4px;
+
+      width: 25px;
+      height: 14px;
+
+      border-radius: 3px;
+
+      background:
+        var(--primary-dark);
+    }
+
+
+    /* =========================================================
+       CRANE CABLE
+       ========================================================= */
+
+    .cable {
+
+      position: absolute;
+
+      right: 22px;
+      top: 7px;
 
       width: 2px;
-      height: 55px;
+      height: 68px;
 
       background:
         var(--muted);
@@ -491,96 +706,190 @@
         top center;
 
       animation:
-        cableMove
-        5s
+        cableLength
+        6s
         ease-in-out
         infinite;
     }
 
 
-    /* Hook */
+    /* =========================================================
+       HOOK
+       ========================================================= */
 
-    .crane-hook {
+    .hook {
 
       position: absolute;
 
-      right: 14px;
-      top: 57px;
+      right: 16px;
+      top: 72px;
 
-      width: 12px;
-      height: 12px;
+      width: 15px;
+      height: 16px;
 
       border:
         2px solid
         var(--primary-blue);
 
-      border-top: none;
+      border-top:
+        none;
 
       border-radius:
-        0 0 8px 8px;
+        0 0 10px 10px;
 
       animation:
         hookMove
-        5s
+        6s
         ease-in-out
         infinite;
     }
 
 
     /* =========================================================
-       BUILDING BLOCK
+       PANEL BEING INSTALLED
        ========================================================= */
 
-    .building-block {
+    .building-panel {
 
       position: absolute;
 
-      width: 18px;
-      height: 18px;
+      width: 29px;
+      height: 35px;
 
-      right: 38px;
-      top: 68px;
+      right: 29px;
+      top: 76px;
 
       border-radius: 3px;
 
       background:
-        var(--teal);
+        linear-gradient(
+          135deg,
+          var(--teal),
+          #0B8D7D
+        );
+
+      border:
+        2px solid
+        rgba(255,255,255,0.65);
 
       box-shadow:
-        0 5px 12px
-        rgba(15, 157, 138, 0.22);
+        0 7px 16px
+        rgba(15,157,138,0.22);
+
+      z-index: 9;
 
       animation:
-        blockMove
-        5s
+        panelBuild
+        6s
         ease-in-out
         infinite;
     }
 
 
+    /* Panel has a small window */
+
+    .building-panel::after {
+
+      content: "";
+
+      position: absolute;
+
+      left: 7px;
+      top: 7px;
+
+      width: 11px;
+      height: 13px;
+
+      border-radius: 2px;
+
+      background:
+        rgba(255,255,255,0.72);
+    }
+
+
     /* =========================================================
-       ECG HEARTBEAT
+       SMALL BLUEPRINT
+       ========================================================= */
+
+    .blueprint {
+
+      position: absolute;
+
+      left: 2px;
+      bottom: 29px;
+
+      width: 46px;
+      height: 33px;
+
+      border:
+        1px solid
+        rgba(23,105,170,0.22);
+
+      border-radius: 3px;
+
+      background:
+        rgba(255,255,255,0.55);
+
+      transform:
+        rotate(-5deg);
+
+      opacity: 0.8;
+    }
+
+
+    .blueprint::before,
+    .blueprint::after {
+
+      content: "";
+
+      position: absolute;
+
+      background:
+        var(--primary-blue);
+
+      opacity: 0.25;
+    }
+
+
+    .blueprint::before {
+
+      width: 28px;
+      height: 1px;
+
+      left: 8px;
+      top: 10px;
+    }
+
+
+    .blueprint::after {
+
+      width: 18px;
+      height: 1px;
+
+      left: 8px;
+      top: 19px;
+    }
+
+
+    /* =========================================================
+       ECG AREA
        ========================================================= */
 
     .heartbeat {
 
       position: absolute;
 
-      width: 330px;
-      height: 82px;
+      width: 500px;
+      height: 105px;
 
       left: 50%;
 
-      bottom: -3px;
+      bottom: -7px;
 
       transform:
         translateX(-50%);
 
-      overflow: hidden;
-
-      opacity: 0.88;
-
-      z-index: 5;
+      z-index: 12;
 
       pointer-events: none;
     }
@@ -590,39 +899,68 @@
 
       width: 100%;
       height: 100%;
+
+      overflow: visible;
     }
 
 
-    .heartbeat-path {
+    /* ---------------------------------------------------------
+       STATIC ECG TRACE
+       --------------------------------------------------------- */
+
+    .ecg-base {
 
       fill: none;
 
-      /*
-        RED ECG
-      */
+      stroke:
+        rgba(198, 40, 40, 0.23);
+
+      stroke-width: 1.5;
+
+      stroke-linecap: round;
+
+      stroke-linejoin: round;
+    }
+
+
+    /* ---------------------------------------------------------
+       MOVING ECG PULSE
+       --------------------------------------------------------- */
+
+    .ecg-pulse {
+
+      fill: none;
 
       stroke:
         var(--ecg-red);
 
-      stroke-width: 2;
+      stroke-width: 2.6;
 
       stroke-linecap: round;
 
       stroke-linejoin: round;
 
       /*
-        Creates the travelling pulse effect
+        IMPORTANT:
+        The whole rhythm remains visible.
+        Only a small highlight travels along it.
       */
 
       stroke-dasharray:
-        18 12 7 12 18 420;
+        55 645;
 
       stroke-dashoffset:
-        470;
+        700;
+
+      filter:
+        drop-shadow(
+          0 0 4px
+          rgba(198,40,40,0.35)
+        );
 
       animation:
-        heartbeatTravel
-        3.2s
+        ecgTravel
+        5s
         linear
         infinite;
     }
@@ -634,7 +972,7 @@
 
     .eyebrow {
 
-      margin-bottom: 16px;
+      margin-bottom: 15px;
 
       color:
         var(--primary-blue);
@@ -663,14 +1001,17 @@
 
       line-height: 1;
 
-      letter-spacing: -3.5px;
+      letter-spacing:
+        -3.5px;
 
-      font-weight: 650;
+      font-weight:
+        650;
 
       color:
         var(--text);
 
-      margin-bottom: 22px;
+      margin-bottom:
+        20px;
 
       animation:
         fadeUp
@@ -690,7 +1031,8 @@
 
     .description {
 
-      max-width: 500px;
+      max-width:
+        500px;
 
       margin:
         0 auto;
@@ -698,9 +1040,11 @@
       color:
         var(--muted);
 
-      font-size: 15px;
+      font-size:
+        15px;
 
-      line-height: 1.8;
+      line-height:
+        1.8;
 
       animation:
         fadeUp
@@ -717,32 +1061,39 @@
 
     .status {
 
-      margin-top: 28px;
+      margin-top:
+        25px;
 
-      display: inline-flex;
+      display:
+        inline-flex;
 
-      align-items: center;
+      align-items:
+        center;
 
-      gap: 9px;
+      gap:
+        9px;
 
       padding:
         9px 16px;
 
-      border-radius: 100px;
+      border-radius:
+        100px;
 
       background:
         var(--light-teal);
 
       border:
         1px solid
-        rgba(15, 157, 138, 0.12);
+        rgba(15,157,138,0.12);
 
       color:
         #087967;
 
-      font-size: 11px;
+      font-size:
+        11px;
 
-      font-weight: 650;
+      font-weight:
+        650;
 
       animation:
         fadeUp
@@ -755,10 +1106,14 @@
 
     .status-dot {
 
-      width: 7px;
-      height: 7px;
+      width:
+        7px;
 
-      border-radius: 50%;
+      height:
+        7px;
+
+      border-radius:
+        50%;
 
       background:
         var(--teal);
@@ -776,19 +1131,29 @@
 
     .footer {
 
-      position: absolute;
+      position:
+        absolute;
 
-      bottom: 0;
+      bottom:
+        0;
 
-      left: 0;
-      right: 0;
+      left:
+        0;
 
-      height: 42px;
+      right:
+        0;
 
-      display: flex;
+      height:
+        42px;
 
-      align-items: center;
-      justify-content: center;
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
 
       background:
         var(--footer);
@@ -796,7 +1161,8 @@
       color:
         var(--footer-text);
 
-      font-size: 10px;
+      font-size:
+        10px;
 
       animation:
         fadeUp
@@ -812,7 +1178,9 @@
        ========================================================= */
 
 
-    /* Background halo */
+    /* ---------------------------------------------------------
+       HALO
+       --------------------------------------------------------- */
 
     @keyframes breathe {
 
@@ -823,7 +1191,7 @@
           scale(0.96);
 
         opacity:
-          0.72;
+          0.70;
       }
 
       50% {
@@ -837,7 +1205,9 @@
     }
 
 
-    /* Orbit */
+    /* ---------------------------------------------------------
+       ORBIT
+       --------------------------------------------------------- */
 
     @keyframes rotate {
 
@@ -855,7 +1225,9 @@
     }
 
 
-    /* Construction scene floating */
+    /* ---------------------------------------------------------
+       CONSTRUCTION FLOAT
+       --------------------------------------------------------- */
 
     @keyframes constructionFloat {
 
@@ -869,14 +1241,16 @@
       50% {
 
         transform:
-          translateY(-7px);
+          translateY(-5px);
       }
     }
 
 
-    /* Crane movement */
+    /* ---------------------------------------------------------
+       CRANE ARM
+       --------------------------------------------------------- */
 
-    @keyframes craneMove {
+    @keyframes craneArmMove {
 
       0%,
       100% {
@@ -885,102 +1259,162 @@
           rotate(0deg);
       }
 
-      50% {
+      45% {
 
         transform:
-          rotate(-3deg);
-      }
-    }
-
-
-    /* Cable movement */
-
-    @keyframes cableMove {
-
-      0%,
-      100% {
-
-        height:
-          55px;
-      }
-
-      50% {
-
-        height:
-          63px;
-      }
-    }
-
-
-    /* Hook movement */
-
-    @keyframes hookMove {
-
-      0%,
-      100% {
-
-        transform:
-          translateY(0);
-      }
-
-      50% {
-
-        transform:
-          translateY(8px);
-      }
-    }
-
-
-    /*
-      Building block travels from the crane
-      toward the building and resets.
-    */
-
-    @keyframes blockMove {
-
-      0% {
-
-        transform:
-          translate(0, 0);
-
-        opacity:
-          0;
-      }
-
-      12% {
-
-        opacity:
-          1;
-      }
-
-      35% {
-
-        transform:
-          translate(0, -25px);
-      }
-
-      55% {
-
-        transform:
-          translate(-40px, -25px);
+          rotate(-2deg);
       }
 
       70% {
 
         transform:
-          translate(-40px, 15px);
+          rotate(1deg);
+      }
+    }
+
+
+    /* ---------------------------------------------------------
+       CABLE
+       --------------------------------------------------------- */
+
+    @keyframes cableLength {
+
+      0%,
+      100% {
+
+        height:
+          68px;
       }
 
-      78% {
+      38% {
+
+        height:
+          88px;
+      }
+
+      58% {
+
+        height:
+          82px;
+      }
+    }
+
+
+    /* ---------------------------------------------------------
+       HOOK
+       --------------------------------------------------------- */
+
+    @keyframes hookMove {
+
+      0%,
+      25% {
 
         transform:
-          translate(-40px, 15px);
+          translateY(0);
+      }
+
+      42% {
+
+        transform:
+          translateY(18px);
+      }
+
+      58% {
+
+        transform:
+          translateY(13px);
+      }
+
+      75%,
+      100% {
+
+        transform:
+          translateY(0);
+      }
+    }
+
+
+    /* ---------------------------------------------------------
+       BUILDING PANEL
+       --------------------------------------------------------- */
+
+    @keyframes panelBuild {
+
+      /*
+        Start away from building.
+      */
+
+      0% {
+
+        transform:
+          translate(0, 0);
+
+        opacity:
+          0;
+      }
+
+
+      15% {
 
         opacity:
           1;
       }
 
-      88%,
+
+      /*
+        Lift upward.
+      */
+
+      35% {
+
+        transform:
+          translate(0, -28px);
+      }
+
+
+      /*
+        Move left toward the building.
+      */
+
+      52% {
+
+        transform:
+          translate(-70px, -28px);
+      }
+
+
+      /*
+        Lower into position.
+      */
+
+      68% {
+
+        transform:
+          translate(-70px, 14px);
+      }
+
+
+      76% {
+
+        transform:
+          translate(-70px, 14px);
+
+        opacity:
+          1;
+      }
+
+
+      /*
+        Reset and repeat.
+      */
+
+      88% {
+
+        opacity:
+          0;
+      }
+
+
       100% {
 
         transform:
@@ -992,70 +1426,112 @@
     }
 
 
-    /* Building floors */
+    /* ---------------------------------------------------------
+       FLOOR CONSTRUCTION
+       --------------------------------------------------------- */
 
-    @keyframes buildFloor {
+    @keyframes floorBuild {
 
-      0%,
+      0% {
+
+        opacity:
+          0.15;
+
+        transform:
+          translateY(12px)
+          scaleY(0.8);
+      }
+
+
       20% {
 
         opacity:
           0.35;
-
-        transform:
-          translateY(5px);
       }
 
+
       35%,
-      85% {
+      82% {
 
         opacity:
           1;
 
         transform:
-          translateY(0);
+          translateY(0)
+          scaleY(1);
       }
+
 
       100% {
 
         opacity:
-          0.35;
+          0.15;
+
+        transform:
+          translateY(12px)
+          scaleY(0.8);
       }
     }
 
 
-    /*
-      ECG continuously travels across the screen.
-    */
+    /* ---------------------------------------------------------
+       WINDOWS LIGHTING UP
+       --------------------------------------------------------- */
 
-    @keyframes heartbeatTravel {
+    @keyframes windowLight {
+
+      0%,
+      45% {
+
+        background:
+          var(--hero-blue);
+      }
+
+      55%,
+      78% {
+
+        background:
+          var(--hero-teal);
+      }
+
+      90%,
+      100% {
+
+        background:
+          var(--hero-blue);
+      }
+    }
+
+
+    /* ---------------------------------------------------------
+       ECG
+       --------------------------------------------------------- */
+
+    @keyframes ecgTravel {
 
       0% {
 
         stroke-dashoffset:
-          470;
+          700;
 
         opacity:
-          0.55;
+          0.45;
       }
+
 
       10% {
-
-        opacity:
-          0.9;
-      }
-
-      50% {
 
         opacity:
           1;
       }
 
-      90% {
+
+      70% {
 
         opacity:
-          0.9;
+          1;
       }
+
 
       100% {
 
@@ -1063,33 +1539,14 @@
           0;
 
         opacity:
-          0.55;
+          0.45;
       }
     }
 
 
-    /* Centre pulse */
-
-    @keyframes pulse {
-
-      0%,
-      100% {
-
-        transform:
-          translate(-50%, -50%)
-          scale(1);
-      }
-
-      50% {
-
-        transform:
-          translate(-50%, -50%)
-          scale(1.18);
-      }
-    }
-
-
-    /* Status indicator */
+    /* ---------------------------------------------------------
+       STATUS PULSE
+       --------------------------------------------------------- */
 
     @keyframes statusPulse {
 
@@ -1098,19 +1555,21 @@
 
         box-shadow:
           0 0 0 0
-          rgba(15, 157, 138, 0.25);
+          rgba(15,157,138,0.25);
       }
 
       50% {
 
         box-shadow:
           0 0 0 6px
-          rgba(15, 157, 138, 0);
+          rgba(15,157,138,0);
       }
     }
 
 
-    /* Fade animations */
+    /* ---------------------------------------------------------
+       FADE UP
+       --------------------------------------------------------- */
 
     @keyframes fadeUp {
 
@@ -1133,6 +1592,10 @@
       }
     }
 
+
+    /* ---------------------------------------------------------
+       FADE DOWN
+       --------------------------------------------------------- */
 
     @keyframes fadeDown {
 
@@ -1171,75 +1634,84 @@
 
       .page {
 
+        min-height:
+          100vh;
+
         padding:
-          85px 20px 70px;
+          82px 18px 68px;
       }
 
 
       .brand {
 
         top:
-          18px;
+          16px;
 
         left:
-          20px;
+          18px;
       }
 
 
       .brand-logo {
 
         width:
-          90px;
+          95px;
 
         height:
-          60px;
+          62px;
       }
 
 
       .visual {
 
         width:
-          290px;
+          340px;
 
         height:
-          225px;
+          270px;
 
         margin-bottom:
-          8px;
+          0;
       }
 
 
       .halo {
 
         width:
-          190px;
+          220px;
 
         height:
-          190px;
+          220px;
       }
 
 
       .orbit {
 
         width:
-          180px;
+          215px;
 
         height:
-          180px;
+          215px;
       }
 
 
       .construction {
 
         transform:
-          scale(0.92);
+          scale(0.84);
       }
 
 
       .heartbeat {
 
         width:
-          290px;
+          340px;
+
+        height:
+          82px;
+
+        bottom:
+          0;
       }
 
 
@@ -1257,13 +1729,16 @@
 
         font-size:
           14px;
+
+        line-height:
+          1.75;
       }
 
 
       .status {
 
         margin-top:
-          23px;
+          22px;
       }
 
     }
@@ -1299,7 +1774,7 @@
 
 
   <!-- =======================================================
-       MAIN PAGE
+       PAGE
        ======================================================= -->
 
   <main class="page">
@@ -1321,7 +1796,7 @@
 
 
     <!-- =====================================================
-         CENTRAL ANIMATION
+         CENTRAL VISUAL
          ===================================================== -->
 
     <div
@@ -1330,68 +1805,80 @@
     >
 
 
-      <!-- Soft glow -->
+      <!-- Background glow -->
 
       <div class="halo"></div>
 
 
-      <!-- Rotating orbit -->
+      <!-- Orbit -->
 
       <div class="orbit"></div>
 
 
       <!-- =================================================
-           CONSTRUCTION
+           CONSTRUCTION SITE
            ================================================= -->
 
       <div class="construction">
 
 
-        <!-- Crane -->
+        <!-- Ground -->
 
-        <div class="crane">
-
-          <div class="crane-mast"></div>
-
-          <div class="crane-arm">
-
-            <div class="crane-cable"></div>
-
-            <div class="crane-hook"></div>
-
-          </div>
-
-        </div>
+        <div class="ground"></div>
 
 
-        <!-- Building -->
+        <!-- Foundation -->
+
+        <div class="foundation"></div>
+
+
+        <!-- =================================================
+             BUILDING
+             ================================================= -->
 
         <div class="building">
 
 
+          <!-- Floor 1 -->
+
           <div class="floor floor-one">
 
-            <span></span>
-            <span></span>
-            <span></span>
+            <span class="window"></span>
+            <span class="window"></span>
+            <span class="window"></span>
 
           </div>
 
+
+          <!-- Floor 2 -->
 
           <div class="floor floor-two">
 
-            <span></span>
-            <span></span>
-            <span></span>
+            <span class="window"></span>
+            <span class="window"></span>
+            <span class="window"></span>
 
           </div>
 
 
+          <!-- Floor 3 -->
+
           <div class="floor floor-three">
 
-            <span></span>
-            <span></span>
-            <span></span>
+            <span class="window"></span>
+            <span class="window"></span>
+            <span class="window"></span>
+
+          </div>
+
+
+          <!-- Floor 4 -->
+
+          <div class="floor floor-four">
+
+            <span class="window"></span>
+            <span class="window"></span>
+            <span class="window"></span>
 
           </div>
 
@@ -1399,53 +1886,165 @@
         </div>
 
 
-        <!-- Block being moved -->
+        <!-- =================================================
+             CRANE
+             ================================================= -->
 
-        <div class="building-block"></div>
+        <div class="crane">
+
+
+          <!-- Mast -->
+
+          <div class="crane-mast"></div>
+
+
+          <!-- Arm -->
+
+          <div class="crane-arm">
+
+            <div class="counterweight"></div>
+
+            <div class="cable"></div>
+
+            <div class="hook"></div>
+
+          </div>
+
+
+        </div>
+
+
+        <!-- =================================================
+             PANEL BEING INSTALLED
+             ================================================= -->
+
+        <div class="building-panel"></div>
+
+
+        <!-- =================================================
+             BLUEPRINT
+             ================================================= -->
+
+        <div class="blueprint"></div>
 
 
       </div>
 
 
       <!-- =================================================
-           ANIMATED ECG
+           ECG
            ================================================= -->
 
       <div class="heartbeat">
 
+
         <svg
-          viewBox="0 0 330 82"
+          viewBox="0 0 500 105"
           preserveAspectRatio="none"
           aria-hidden="true"
         >
 
+
+          <!--
+            LONG, RECOGNIZABLE ECG TRACE
+
+            The trace itself remains visible.
+            A small red pulse travels along it.
+          -->
+
           <path
-            class="heartbeat-path"
+            class="ecg-base"
             d="
-              M 0 43
-              L 87 43
+              M 0 55
 
-              L 99 43
-              L 107 36
-              L 115 50
-              L 123 43
+              L 105 55
 
-              L 141 43
-              L 151 43
+              L 120 55
+              L 128 48
+              L 136 62
+              L 144 55
 
-              L 160 18
-              L 171 66
-              L 183 43
+              L 165 55
+              L 175 55
 
-              L 195 43
-              L 207 43
-              L 216 36
-              L 224 50
-              L 232 43
+              L 185 27
+              L 197 82
+              L 210 55
 
-              L 330 43
+              L 230 55
+              L 242 55
+
+              L 250 48
+              L 258 62
+              L 266 55
+
+              L 290 55
+              L 300 55
+
+              L 310 30
+              L 322 79
+              L 334 55
+
+              L 355 55
+              L 365 55
+
+              L 373 48
+              L 381 62
+              L 389 55
+
+              L 500 55
             "
           ></path>
+
+
+          <!--
+            Travelling red pulse
+          -->
+
+          <path
+            class="ecg-pulse"
+            d="
+              M 0 55
+
+              L 105 55
+
+              L 120 55
+              L 128 48
+              L 136 62
+              L 144 55
+
+              L 165 55
+              L 175 55
+
+              L 185 27
+              L 197 82
+              L 210 55
+
+              L 230 55
+              L 242 55
+
+              L 250 48
+              L 258 62
+              L 266 55
+
+              L 290 55
+              L 300 55
+
+              L 310 30
+              L 322 79
+              L 334 55
+
+              L 355 55
+              L 365 55
+
+              L 373 48
+              L 381 62
+              L 389 55
+
+              L 500 55
+            "
+          ></path>
+
 
         </svg>
 
@@ -1456,7 +2055,7 @@
 
 
     <!-- =====================================================
-         HEADLINE
+         MESSAGE
          ===================================================== -->
 
     <div class="eyebrow">
@@ -1474,10 +2073,6 @@
 
     </h1>
 
-
-    <!-- =====================================================
-         DESCRIPTION
-         ===================================================== -->
 
     <p class="description">
 
@@ -1533,9 +2128,8 @@
       new Date().getFullYear();
 
 
-
     /* =====================================================
-       SUBTLE MOUSE PARALLAX
+       SUBTLE MOUSE MOVEMENT
        ===================================================== */
 
     const visual =
@@ -1543,8 +2137,11 @@
 
 
     /*
-      Only activate on devices with
-      a real mouse/pointer.
+      Only use this effect when a real mouse
+      is available.
+
+      It gives the construction scene a
+      very subtle sense of depth.
     */
 
     if (
@@ -1556,7 +2153,7 @@
 
       document.addEventListener(
         "mousemove",
-        function (event) {
+        function(event) {
 
 
           const x =
@@ -1573,22 +2170,17 @@
 
           visual.style.transform =
             `translate(
-              ${x * 5}px,
-              ${y * 5}px
+              ${x * 4}px,
+              ${y * 4}px
             )`;
 
         }
       );
 
 
-      /*
-        Return to centre when
-        mouse leaves the page.
-      */
-
       document.addEventListener(
         "mouseleave",
-        function () {
+        function() {
 
           visual.style.transform =
             "translate(0, 0)";
@@ -1598,9 +2190,9 @@
 
     }
 
-
   </script>
 
 
 </body>
+
 </html>
