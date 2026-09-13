@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>Wellens — Coming Soon</title>
 
+
   <style>
+
+    /* =========================================================
+       WELLENS — BRAND COLOURS
+       ========================================================= */
+
     :root {
-      /* =====================================================
-         WELLENS BRAND PALETTE
-         ===================================================== */
 
       --primary-blue: #1769AA;
       --primary-dark: #125486;
@@ -33,12 +41,15 @@
 
       --footer: #102A43;
       --footer-text: #B8C7D6;
+
+      /* ECG red */
+      --ecg-red: #C62828;
     }
 
 
-    /* =====================================================
+    /* =========================================================
        RESET
-       ===================================================== */
+       ========================================================= */
 
     * {
       margin: 0;
@@ -55,6 +66,7 @@
 
 
     body {
+
       min-height: 100vh;
 
       font-family:
@@ -70,54 +82,63 @@
       color: var(--text);
 
       background:
+
         radial-gradient(
-          circle at 50% 40%,
-          rgba(220, 238, 249, 0.85),
+          circle at 50% 38%,
+          rgba(220, 238, 249, 0.90),
           transparent 35%
         ),
+
         radial-gradient(
           circle at 15% 90%,
-          rgba(223, 245, 241, 0.65),
+          rgba(223, 245, 241, 0.70),
           transparent 30%
         ),
+
         var(--background);
 
       overflow: hidden;
     }
 
 
-    /* =====================================================
+    /* =========================================================
        PAGE
-       ===================================================== */
+       ========================================================= */
 
     .page {
+
       min-height: 100vh;
 
       position: relative;
 
       display: flex;
+
       flex-direction: column;
 
       align-items: center;
+
       justify-content: center;
 
-      padding: 40px 24px 70px;
+      padding:
+        50px 24px 70px;
 
       text-align: center;
     }
 
 
-    /* =====================================================
-       TOP BRAND
-       ===================================================== */
+    /* =========================================================
+       WELLENS LOGO
+       ========================================================= */
 
     .brand {
+
       position: absolute;
 
-      top: 28px;
-      left: 42px;
+      top: 25px;
+      left: 38px;
 
       display: flex;
+
       align-items: center;
 
       animation:
@@ -125,19 +146,15 @@
     }
 
 
-    /*
-      The uploaded logo contains whitespace around the artwork.
-
-      The image is placed inside this container using
-      object-fit: contain.
-
-      For the cleanest result, use a cropped version of the
-      logo on the live website if available.
-    */
-
     .brand-logo {
-      width: 72px;
-      height: 52px;
+
+      /*
+        Slightly larger than before.
+        Your actual uploaded logo is used here.
+      */
+
+      width: 110px;
+      height: 72px;
 
       object-fit: contain;
 
@@ -145,30 +162,35 @@
     }
 
 
-    /* =====================================================
+    /* =========================================================
        CENTRAL VISUAL
-       ===================================================== */
+       ========================================================= */
 
     .visual {
+
       width: 330px;
       height: 255px;
 
       position: relative;
 
       display: flex;
+
       align-items: center;
       justify-content: center;
 
-      margin-bottom: 20px;
+      margin-bottom: 15px;
 
       transition:
         transform 0.15s ease-out;
     }
 
 
-    /* Soft background glow */
+    /* =========================================================
+       SOFT BACKGROUND HALO
+       ========================================================= */
 
     .halo {
+
       position: absolute;
 
       width: 230px;
@@ -177,10 +199,14 @@
       border-radius: 50%;
 
       background:
+
         radial-gradient(
           circle,
+
           rgba(220, 238, 249, 0.95),
-          rgba(223, 245, 241, 0.45) 58%,
+
+          rgba(223, 245, 241, 0.48) 58%,
+
           transparent 72%
         );
 
@@ -189,11 +215,12 @@
     }
 
 
-    /* =====================================================
-       ROTATING ORBIT
-       ===================================================== */
+    /* =========================================================
+       ORBIT
+       ========================================================= */
 
     .orbit {
+
       position: absolute;
 
       width: 210px;
@@ -202,7 +229,8 @@
       border-radius: 50%;
 
       border:
-        1px solid rgba(23, 105, 170, 0.13);
+        1px solid
+        rgba(23, 105, 170, 0.13);
 
       animation:
         rotate 20s linear infinite;
@@ -211,6 +239,7 @@
 
     .orbit::before,
     .orbit::after {
+
       content: "";
 
       position: absolute;
@@ -223,137 +252,325 @@
 
 
     .orbit::before {
+
       top: 18px;
+
       left: 50%;
 
-      transform: translateX(-50%);
+      transform:
+        translateX(-50%);
 
-      background: var(--primary-blue);
+      background:
+        var(--primary-blue);
     }
 
 
     .orbit::after {
+
       right: 16px;
+
       bottom: 38px;
 
-      background: var(--teal);
+      background:
+        var(--teal);
     }
 
 
-    /* =====================================================
-       CENTRAL BRAND SYMBOL
-       ===================================================== */
+    /* =========================================================
+       CONSTRUCTION SCENE
+       ========================================================= */
 
-    .symbol {
-      width: 104px;
-      height: 104px;
+    .construction {
+
+      width: 190px;
+      height: 175px;
 
       position: relative;
 
-      z-index: 2;
-
-      border-radius: 30px;
-
-      background: var(--white);
-
-      border:
-        1px solid rgba(23, 105, 170, 0.08);
-
-      box-shadow:
-        0 22px 50px rgba(23, 105, 170, 0.14);
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      z-index: 3;
 
       animation:
-        appear 1.1s 0.35s ease both,
-        float 5s 1.4s ease-in-out infinite;
+        constructionFloat 5s ease-in-out infinite;
     }
 
 
-    /*
-      The central mark is deliberately abstract.
+    /* =========================================================
+       BUILDING
+       ========================================================= */
 
-      The real Wellens logo remains in the header.
-      This central symbol represents the "website taking shape".
-    */
-
-    .symbol-inner {
-      width: 54px;
-      height: 54px;
-
-      position: relative;
-    }
-
-
-    .symbol-inner::before,
-    .symbol-inner::after {
-      content: "";
+    .building {
 
       position: absolute;
-
-      width: 35px;
-      height: 35px;
-
-      border:
-        4px solid var(--primary-blue);
-
-      border-radius: 50%;
-    }
-
-
-    .symbol-inner::before {
-      left: 0;
-      top: 10px;
-    }
-
-
-    .symbol-inner::after {
-      right: 0;
-      top: 10px;
-
-      border-color: var(--primary-blue);
-    }
-
-
-    /* Teal heartbeat point */
-
-    .pulse {
-      position: absolute;
-
-      width: 11px;
-      height: 11px;
 
       left: 50%;
-      top: 50%;
+      bottom: 18px;
+
+      width: 86px;
+      height: 105px;
 
       transform:
-        translate(-50%, -50%);
+        translateX(-50%);
 
-      border-radius: 50%;
+      display: flex;
 
-      background: var(--teal);
+      flex-direction: column;
 
-      box-shadow:
-        0 0 0 7px rgba(15, 157, 138, 0.09);
+      justify-content: flex-end;
 
-      animation:
-        pulse 2s ease-in-out infinite;
+      gap: 5px;
     }
 
 
-    /* =====================================================
-       ECG LINE
-       ===================================================== */
+    /* Building floors */
+
+    .floor {
+
+      width: 100%;
+      height: 29px;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 6px;
+
+      padding:
+        5px 7px;
+
+      background:
+
+        linear-gradient(
+          135deg,
+          #FFFFFF,
+          #EDF6FB
+        );
+
+      border:
+        1px solid
+        rgba(23, 105, 170, 0.16);
+
+      border-radius: 4px;
+
+      box-shadow:
+        0 4px 9px
+        rgba(23, 105, 170, 0.08);
+    }
+
+
+    /* Building windows */
+
+    .floor span {
+
+      display: block;
+
+      border-radius: 2px;
+
+      background:
+        var(--hero-blue);
+
+      border:
+        1px solid
+        rgba(23, 105, 170, 0.12);
+    }
+
+
+    /* Floors subtly animate */
+
+    .floor-one {
+
+      animation:
+        buildFloor
+        5s
+        ease-in-out
+        infinite;
+    }
+
+
+    .floor-two {
+
+      animation:
+        buildFloor
+        5s
+        0.45s
+        ease-in-out
+        infinite;
+    }
+
+
+    .floor-three {
+
+      animation:
+        buildFloor
+        5s
+        0.9s
+        ease-in-out
+        infinite;
+    }
+
+
+    /* =========================================================
+       CRANE
+       ========================================================= */
+
+    .crane {
+
+      position: absolute;
+
+      left: 25px;
+      top: 15px;
+
+      width: 145px;
+      height: 105px;
+    }
+
+
+    /* Crane mast */
+
+    .crane-mast {
+
+      position: absolute;
+
+      left: 27px;
+      top: 0;
+
+      width: 5px;
+      height: 115px;
+
+      border-radius: 4px;
+
+      background:
+        var(--primary-blue);
+    }
+
+
+    /* Crane horizontal arm */
+
+    .crane-arm {
+
+      position: absolute;
+
+      left: 27px;
+      top: 2px;
+
+      width: 125px;
+      height: 5px;
+
+      border-radius: 4px;
+
+      background:
+        var(--primary-blue);
+
+      transform-origin:
+        left center;
+
+      animation:
+        craneMove
+        5s
+        ease-in-out
+        infinite;
+    }
+
+
+    /* Cable */
+
+    .crane-cable {
+
+      position: absolute;
+
+      right: 19px;
+      top: 5px;
+
+      width: 2px;
+      height: 55px;
+
+      background:
+        var(--muted);
+
+      transform-origin:
+        top center;
+
+      animation:
+        cableMove
+        5s
+        ease-in-out
+        infinite;
+    }
+
+
+    /* Hook */
+
+    .crane-hook {
+
+      position: absolute;
+
+      right: 14px;
+      top: 57px;
+
+      width: 12px;
+      height: 12px;
+
+      border:
+        2px solid
+        var(--primary-blue);
+
+      border-top: none;
+
+      border-radius:
+        0 0 8px 8px;
+
+      animation:
+        hookMove
+        5s
+        ease-in-out
+        infinite;
+    }
+
+
+    /* =========================================================
+       BUILDING BLOCK
+       ========================================================= */
+
+    .building-block {
+
+      position: absolute;
+
+      width: 18px;
+      height: 18px;
+
+      right: 38px;
+      top: 68px;
+
+      border-radius: 3px;
+
+      background:
+        var(--teal);
+
+      box-shadow:
+        0 5px 12px
+        rgba(15, 157, 138, 0.22);
+
+      animation:
+        blockMove
+        5s
+        ease-in-out
+        infinite;
+    }
+
+
+    /* =========================================================
+       ECG HEARTBEAT
+       ========================================================= */
 
     .heartbeat {
+
       position: absolute;
 
       width: 330px;
       height: 82px;
 
       left: 50%;
+
       bottom: -3px;
 
       transform:
@@ -361,45 +578,66 @@
 
       overflow: hidden;
 
-      opacity: 0.82;
+      opacity: 0.88;
+
+      z-index: 5;
+
+      pointer-events: none;
     }
 
 
     .heartbeat svg {
+
       width: 100%;
       height: 100%;
     }
 
 
     .heartbeat-path {
+
       fill: none;
 
-      stroke: var(--teal);
+      /*
+        RED ECG
+      */
 
-      stroke-width: 1.7;
+      stroke:
+        var(--ecg-red);
+
+      stroke-width: 2;
 
       stroke-linecap: round;
 
       stroke-linejoin: round;
 
-      stroke-dasharray: 440;
+      /*
+        Creates the travelling pulse effect
+      */
 
-      stroke-dashoffset: 440;
+      stroke-dasharray:
+        18 12 7 12 18 420;
+
+      stroke-dashoffset:
+        470;
 
       animation:
-        heartbeatDraw 3.2s 1.1s ease forwards,
-        heartbeatGlow 3.5s 4.3s ease-in-out infinite;
+        heartbeatTravel
+        3.2s
+        linear
+        infinite;
     }
 
 
-    /* =====================================================
+    /* =========================================================
        TEXT
-       ===================================================== */
+       ========================================================= */
 
     .eyebrow {
+
       margin-bottom: 16px;
 
-      color: var(--primary-blue);
+      color:
+        var(--primary-blue);
 
       font-size: 11px;
 
@@ -410,11 +648,16 @@
       text-transform: uppercase;
 
       animation:
-        fadeUp 0.9s 0.7s ease both;
+        fadeUp
+        0.9s
+        0.7s
+        ease
+        both;
     }
 
 
     h1 {
+
       font-size:
         clamp(44px, 6vw, 70px);
 
@@ -424,41 +667,56 @@
 
       font-weight: 650;
 
-      color: var(--text);
+      color:
+        var(--text);
 
       margin-bottom: 22px;
 
       animation:
-        fadeUp 0.9s 0.85s ease both;
+        fadeUp
+        0.9s
+        0.85s
+        ease
+        both;
     }
 
 
     h1 span {
-      color: var(--primary-blue);
+
+      color:
+        var(--primary-blue);
     }
 
 
     .description {
+
       max-width: 500px;
 
-      margin: 0 auto;
+      margin:
+        0 auto;
 
-      color: var(--muted);
+      color:
+        var(--muted);
 
       font-size: 15px;
 
       line-height: 1.8;
 
       animation:
-        fadeUp 0.9s 1s ease both;
+        fadeUp
+        0.9s
+        1s
+        ease
+        both;
     }
 
 
-    /* =====================================================
+    /* =========================================================
        STATUS
-       ===================================================== */
+       ========================================================= */
 
     .status {
+
       margin-top: 28px;
 
       display: inline-flex;
@@ -467,14 +725,17 @@
 
       gap: 9px;
 
-      padding: 9px 16px;
+      padding:
+        9px 16px;
 
       border-radius: 100px;
 
-      background: var(--light-teal);
+      background:
+        var(--light-teal);
 
       border:
-        1px solid rgba(15, 157, 138, 0.12);
+        1px solid
+        rgba(15, 157, 138, 0.12);
 
       color:
         #087967;
@@ -484,31 +745,41 @@
       font-weight: 650;
 
       animation:
-        fadeUp 0.9s 1.15s ease both;
+        fadeUp
+        0.9s
+        1.15s
+        ease
+        both;
     }
 
 
     .status-dot {
+
       width: 7px;
       height: 7px;
 
       border-radius: 50%;
 
-      background: var(--teal);
+      background:
+        var(--teal);
 
       animation:
-        statusPulse 2s infinite;
+        statusPulse
+        2s
+        infinite;
     }
 
 
-    /* =====================================================
+    /* =========================================================
        FOOTER
-       ===================================================== */
+       ========================================================= */
 
     .footer {
+
       position: absolute;
 
       bottom: 0;
+
       left: 0;
       right: 0;
 
@@ -519,71 +790,298 @@
       align-items: center;
       justify-content: center;
 
-      background: var(--footer);
+      background:
+        var(--footer);
 
-      color: var(--footer-text);
+      color:
+        var(--footer-text);
 
       font-size: 10px;
 
       animation:
-        fadeUp 1s 1.4s ease both;
+        fadeUp
+        1s
+        1.4s
+        ease
+        both;
     }
 
 
-    /* =====================================================
+    /* =========================================================
        ANIMATIONS
-       ===================================================== */
+       ========================================================= */
+
+
+    /* Background halo */
 
     @keyframes breathe {
 
       0%,
       100% {
-        transform: scale(0.96);
-        opacity: 0.72;
+
+        transform:
+          scale(0.96);
+
+        opacity:
+          0.72;
       }
 
       50% {
-        transform: scale(1.05);
-        opacity: 1;
+
+        transform:
+          scale(1.05);
+
+        opacity:
+          1;
       }
     }
 
+
+    /* Orbit */
 
     @keyframes rotate {
 
       from {
-        transform: rotate(0deg);
+
+        transform:
+          rotate(0deg);
       }
 
       to {
-        transform: rotate(360deg);
+
+        transform:
+          rotate(360deg);
       }
     }
 
 
-    @keyframes float {
+    /* Construction scene floating */
+
+    @keyframes constructionFloat {
 
       0%,
       100% {
-        transform: translateY(0);
+
+        transform:
+          translateY(0);
       }
 
       50% {
-        transform: translateY(-8px);
+
+        transform:
+          translateY(-7px);
       }
     }
 
+
+    /* Crane movement */
+
+    @keyframes craneMove {
+
+      0%,
+      100% {
+
+        transform:
+          rotate(0deg);
+      }
+
+      50% {
+
+        transform:
+          rotate(-3deg);
+      }
+    }
+
+
+    /* Cable movement */
+
+    @keyframes cableMove {
+
+      0%,
+      100% {
+
+        height:
+          55px;
+      }
+
+      50% {
+
+        height:
+          63px;
+      }
+    }
+
+
+    /* Hook movement */
+
+    @keyframes hookMove {
+
+      0%,
+      100% {
+
+        transform:
+          translateY(0);
+      }
+
+      50% {
+
+        transform:
+          translateY(8px);
+      }
+    }
+
+
+    /*
+      Building block travels from the crane
+      toward the building and resets.
+    */
+
+    @keyframes blockMove {
+
+      0% {
+
+        transform:
+          translate(0, 0);
+
+        opacity:
+          0;
+      }
+
+      12% {
+
+        opacity:
+          1;
+      }
+
+      35% {
+
+        transform:
+          translate(0, -25px);
+      }
+
+      55% {
+
+        transform:
+          translate(-40px, -25px);
+      }
+
+      70% {
+
+        transform:
+          translate(-40px, 15px);
+      }
+
+      78% {
+
+        transform:
+          translate(-40px, 15px);
+
+        opacity:
+          1;
+      }
+
+      88%,
+      100% {
+
+        transform:
+          translate(0, 0);
+
+        opacity:
+          0;
+      }
+    }
+
+
+    /* Building floors */
+
+    @keyframes buildFloor {
+
+      0%,
+      20% {
+
+        opacity:
+          0.35;
+
+        transform:
+          translateY(5px);
+      }
+
+      35%,
+      85% {
+
+        opacity:
+          1;
+
+        transform:
+          translateY(0);
+      }
+
+      100% {
+
+        opacity:
+          0.35;
+      }
+    }
+
+
+    /*
+      ECG continuously travels across the screen.
+    */
+
+    @keyframes heartbeatTravel {
+
+      0% {
+
+        stroke-dashoffset:
+          470;
+
+        opacity:
+          0.55;
+      }
+
+      10% {
+
+        opacity:
+          0.9;
+      }
+
+      50% {
+
+        opacity:
+          1;
+      }
+
+      90% {
+
+        opacity:
+          0.9;
+      }
+
+      100% {
+
+        stroke-dashoffset:
+          0;
+
+        opacity:
+          0.55;
+      }
+    }
+
+
+    /* Centre pulse */
 
     @keyframes pulse {
 
       0%,
       100% {
+
         transform:
           translate(-50%, -50%)
           scale(1);
       }
 
       50% {
+
         transform:
           translate(-50%, -50%)
           scale(1.18);
@@ -591,16 +1089,20 @@
     }
 
 
+    /* Status indicator */
+
     @keyframes statusPulse {
 
       0%,
       100% {
+
         box-shadow:
           0 0 0 0
           rgba(15, 157, 138, 0.25);
       }
 
       50% {
+
         box-shadow:
           0 0 0 6px
           rgba(15, 157, 138, 0);
@@ -608,51 +1110,26 @@
     }
 
 
-    @keyframes heartbeatDraw {
-
-      to {
-        stroke-dashoffset: 0;
-      }
-    }
-
-
-    @keyframes heartbeatGlow {
-
-      0%,
-      100% {
-        opacity: 0.45;
-      }
-
-      50% {
-        opacity: 0.95;
-      }
-    }
-
-
-    @keyframes appear {
-
-      from {
-        opacity: 0;
-        transform: scale(0.72);
-      }
-
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
+    /* Fade animations */
 
     @keyframes fadeUp {
 
       from {
-        opacity: 0;
-        transform: translateY(15px);
+
+        opacity:
+          0;
+
+        transform:
+          translateY(15px);
       }
 
       to {
-        opacity: 1;
-        transform: translateY(0);
+
+        opacity:
+          1;
+
+        transform:
+          translateY(0);
       }
     }
 
@@ -660,118 +1137,170 @@
     @keyframes fadeDown {
 
       from {
-        opacity: 0;
-        transform: translateY(-12px);
+
+        opacity:
+          0;
+
+        transform:
+          translateY(-12px);
       }
 
       to {
-        opacity: 1;
-        transform: translateY(0);
+
+        opacity:
+          1;
+
+        transform:
+          translateY(0);
       }
     }
 
 
-    /* =====================================================
+    /* =========================================================
        MOBILE
-       ===================================================== */
+       ========================================================= */
 
     @media (max-width: 600px) {
 
       body {
-        overflow: auto;
+
+        overflow:
+          auto;
       }
 
 
       .page {
+
         padding:
-          80px 20px 70px;
+          85px 20px 70px;
       }
 
 
       .brand {
-        top: 20px;
-        left: 22px;
+
+        top:
+          18px;
+
+        left:
+          20px;
       }
 
 
       .brand-logo {
-        width: 66px;
-        height: 46px;
+
+        width:
+          90px;
+
+        height:
+          60px;
       }
 
 
       .visual {
-        width: 290px;
-        height: 225px;
 
-        margin-bottom: 8px;
+        width:
+          290px;
+
+        height:
+          225px;
+
+        margin-bottom:
+          8px;
       }
 
 
       .halo {
-        width: 190px;
-        height: 190px;
+
+        width:
+          190px;
+
+        height:
+          190px;
       }
 
 
       .orbit {
-        width: 180px;
-        height: 180px;
+
+        width:
+          180px;
+
+        height:
+          180px;
       }
 
 
-      .symbol {
-        width: 92px;
-        height: 92px;
+      .construction {
 
-        border-radius: 27px;
+        transform:
+          scale(0.92);
       }
 
 
       .heartbeat {
-        width: 290px;
+
+        width:
+          290px;
       }
 
 
       h1 {
-        font-size: 44px;
 
-        letter-spacing: -2.5px;
+        font-size:
+          44px;
+
+        letter-spacing:
+          -2.5px;
       }
 
 
       .description {
-        font-size: 14px;
+
+        font-size:
+          14px;
       }
 
 
       .status {
-        margin-top: 23px;
+
+        margin-top:
+          23px;
       }
 
     }
 
 
-    /* =====================================================
-       ACCESSIBILITY
-       ===================================================== */
+    /* =========================================================
+       REDUCED MOTION
+       ========================================================= */
 
     @media (prefers-reduced-motion: reduce) {
 
       *,
       *::before,
       *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+
+        animation-duration:
+          0.01ms !important;
+
+        animation-iteration-count:
+          1 !important;
+
+        transition-duration:
+          0.01ms !important;
       }
     }
 
   </style>
+
 </head>
 
 
 <body>
+
+
+  <!-- =======================================================
+       MAIN PAGE
+       ======================================================= -->
 
   <main class="page">
 
@@ -780,50 +1309,107 @@
          WELLENS LOGO
          ===================================================== -->
 
-    <!--
-      Put the uploaded "_Main symbol.png" in the same folder
-      as this HTML file.
-
-      For your production website, I recommend renaming it
-      to something simple such as:
-
-      wellens-logo.png
-    -->
-
     <div class="brand">
 
       <img
         class="brand-logo"
-        src="wellens-logo.png"
+        src="./wellens-logo.png"
         alt="Wellens"
-      />
+      >
 
     </div>
 
 
     <!-- =====================================================
-         CENTRAL VISUAL
+         CENTRAL ANIMATION
          ===================================================== -->
 
-    <div class="visual" id="visual">
+    <div
+      class="visual"
+      id="visual"
+    >
+
+
+      <!-- Soft glow -->
 
       <div class="halo"></div>
+
+
+      <!-- Rotating orbit -->
 
       <div class="orbit"></div>
 
 
-      <div class="symbol">
+      <!-- =================================================
+           CONSTRUCTION
+           ================================================= -->
 
-        <div class="symbol-inner">
+      <div class="construction">
 
-          <div class="pulse"></div>
+
+        <!-- Crane -->
+
+        <div class="crane">
+
+          <div class="crane-mast"></div>
+
+          <div class="crane-arm">
+
+            <div class="crane-cable"></div>
+
+            <div class="crane-hook"></div>
+
+          </div>
 
         </div>
+
+
+        <!-- Building -->
+
+        <div class="building">
+
+
+          <div class="floor floor-one">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+          </div>
+
+
+          <div class="floor floor-two">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+          </div>
+
+
+          <div class="floor floor-three">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+          </div>
+
+
+        </div>
+
+
+        <!-- Block being moved -->
+
+        <div class="building-block"></div>
+
 
       </div>
 
 
-      <!-- ECG -->
+      <!-- =================================================
+           ANIMATED ECG
+           ================================================= -->
 
       <div class="heartbeat">
 
@@ -838,33 +1424,39 @@
             d="
               M 0 43
               L 87 43
+
               L 99 43
               L 107 36
               L 115 50
               L 123 43
+
               L 141 43
               L 151 43
+
               L 160 18
               L 171 66
               L 183 43
+
               L 195 43
               L 207 43
               L 216 36
               L 224 50
               L 232 43
+
               L 330 43
             "
-          />
+          ></path>
 
         </svg>
 
       </div>
 
+
     </div>
 
 
     <!-- =====================================================
-         MESSAGE
+         HEADLINE
          ===================================================== -->
 
     <div class="eyebrow">
@@ -882,6 +1474,10 @@
 
     </h1>
 
+
+    <!-- =====================================================
+         DESCRIPTION
+         ===================================================== -->
 
     <p class="description">
 
@@ -916,17 +1512,26 @@
 
     </div>
 
+
   </main>
 
 
+  <!-- =======================================================
+       JAVASCRIPT
+       ======================================================= -->
+
   <script>
 
+
     /* =====================================================
-       YEAR
+       CURRENT YEAR
        ===================================================== */
 
-    document.getElementById("year").textContent =
+    document
+      .getElementById("year")
+      .textContent =
       new Date().getFullYear();
+
 
 
     /* =====================================================
@@ -937,21 +1542,33 @@
       document.getElementById("visual");
 
 
+    /*
+      Only activate on devices with
+      a real mouse/pointer.
+    */
+
     if (
-      window.matchMedia("(pointer:fine)").matches
+      window.matchMedia(
+        "(pointer:fine)"
+      ).matches
     ) {
+
 
       document.addEventListener(
         "mousemove",
         function (event) {
 
+
           const x =
-            (event.clientX /
-              window.innerWidth - 0.5);
+            event.clientX /
+            window.innerWidth -
+            0.5;
+
 
           const y =
-            (event.clientY /
-              window.innerHeight - 0.5);
+            event.clientY /
+            window.innerHeight -
+            0.5;
 
 
           visual.style.transform =
@@ -963,9 +1580,27 @@
         }
       );
 
+
+      /*
+        Return to centre when
+        mouse leaves the page.
+      */
+
+      document.addEventListener(
+        "mouseleave",
+        function () {
+
+          visual.style.transform =
+            "translate(0, 0)";
+
+        }
+      );
+
     }
 
+
   </script>
+
 
 </body>
 </html>
